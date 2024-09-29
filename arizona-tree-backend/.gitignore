@@ -1,3 +1,4 @@
 saved_checkpoints
 data
 .DS_Store
+.env

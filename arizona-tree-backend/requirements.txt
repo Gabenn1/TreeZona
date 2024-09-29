@@ -1,5 +1,9 @@
 affine==2.4.0
 attrs==24.2.0
+azure-common==1.1.28
+azure-core==1.31.0
+azure-maps-search==2.0.0b1
+azure-mgmt-core==1.4.0
 certifi==2024.8.30
 charset-normalizer==3.3.2
 click==8.1.7
@@ -19,6 +23,7 @@ huggingface-hub==0.25.1
 idna==3.10
 imageio==2.35.1
 importlib_metadata==8.5.0
+isodate==0.6.1
 Jinja2==3.1.4
 joblib==1.4.2
 kiwisolver==1.4.7
@@ -30,8 +35,10 @@ locket==1.0.0
 MarkupSafe==2.1.5
 matplotlib==3.9.2
 msgpack==1.1.0
+msrest==0.7.1
 networkx==3.3
 numpy==1.26.4
+oauthlib==3.2.2
 opencv-python==4.10.0.84
 packaging==24.1
 pandas==2.2.3
@@ -46,6 +53,7 @@ pytz==2024.2
 PyYAML==6.0.2
 rasterio==1.4.0
 requests==2.32.3
+requests-oauthlib==2.0.0
 scikit-image==0.24.0
 scikit-learn==1.5.2
 scipy==1.14.1
