@@ -51,9 +51,9 @@ def canopy_coverage(image: Image.Image):
     # Remove axes for cleaner output
     ax.axis("off")
 
-    # Save the figure
-    plt.savefig('tile_overlay_neon_yellow.png')  # Save the figure to a file
-    plt.show()
+    # Save the figure without borders or padding
+    plt.savefig("../arizona-tree/public/images/output.png",
+                bbox_inches='tight', pad_inches=0)
 
     # Clean up the temporary file
     import os
