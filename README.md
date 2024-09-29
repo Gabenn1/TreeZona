@@ -1,4 +1,5 @@
 # Arizona Tree
+![Arizona Tree logo](https://ibb.co/dmKSBrg)
 ## Sunhacks 2024
 
 Arizona Tree is a web-based application designed to provide users with insights into the canopy coverage of a given location. By entering an address or location, users can explore an interactive map to visualize the tree canopy and receive a percentage of tree coverage in that area.
