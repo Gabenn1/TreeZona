@@ -1,15 +1,24 @@
-from urllib import request
+from io import BytesIO
+from PIL import Image
 import detectree as dtr
 import matplotlib.pyplot as plt
-import rasterio as rio
-from rasterio import plot
 import numpy as np
 from matplotlib.colors import ListedColormap
+import tempfile
 
-def canapy_coverage(file_path):
-    # Load the tile from the local file system
+
+def canopy_coverage(image: Image.Image):
+    # Convert PIL image to NumPy array
+    img_array = np.array(image)
+
+    # Save the image to a temporary file and pass the path to detectree
+    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as temp_file:
+        image.save(temp_file.name, format='PNG')
+        temp_file_path = temp_file.name
+
     # Use the pre-trained model to segment the image into tree/non-tree pixels
-    y_pred = dtr.Classifier().predict_img(file_path)
+    y_pred = dtr.Classifier().predict_img(
+        temp_file_path)  # Use the temporary file path
 
     # Calculate the percentage of the image covered by tree pixels
     total_pixels = y_pred.size
@@ -18,36 +27,35 @@ def canapy_coverage(file_path):
 
     # Adjust the calculation based on the unique values
     tree_pixels = np.sum(y_pred)  # Use this if y_pred is boolean
-    # tree_pixels = np.sum(y_pred > 0)  # Use this if tree pixels have values > 0
 
     coverage_percentage = (tree_pixels / total_pixels)
 
     # Print the coverage percentage
-    print(f"Percentage of the image covered by trees: {coverage_percentage:.2f}%")
-
-    # Load the image using rasterio
-    with rio.open(file_path) as src:
-        img = src.read([1, 2, 3])  # Read RGB bands (assuming it's an RGB image)
+    print(
+        f"Percentage of the image covered by trees: {coverage_percentage:.2f}%")
 
     # Create a figure for plotting
     fig, ax = plt.subplots(figsize=(10, 10))
 
     # Plot the original image
-    ax.imshow(np.moveaxis(img, 0, -1))  # Move axis to plot correctly (bands last)
-
-    # Overlay the predicted mask with neon yellow color and some transparency
-    
+    ax.imshow(img_array)
 
     # Neon yellow color for tree pixels
-    neon_yellow_cmap = ListedColormap(["none", "#FFFF33"])  # Bright neon yellow
+    neon_yellow_cmap = ListedColormap(
+        ["none", "#FFFF33"])  # Bright neon yellow
 
     # Overlay the prediction with the custom neon yellow colormap
-    ax.imshow(y_pred, cmap=neon_yellow_cmap, alpha=1)  # Adjust alpha for transparency
+    # Adjust alpha for transparency
+    ax.imshow(y_pred, cmap=neon_yellow_cmap, alpha=1)
 
     # Remove axes for cleaner output
     ax.axis("off")
 
-    # Save the figure
-    plt.savefig('tile_overlay_neon_yellow.png')  # Save the figure to a file
-    plt.show()
-    
+    # Save the figure without borders or padding
+    plt.savefig("../arizona-tree/public/images/output.png",
+                bbox_inches='tight', pad_inches=0)
+
+    # Clean up the temporary file
+    import os
+    # Make sure to delete the temporary file after use
+    os.remove(temp_file_path)
