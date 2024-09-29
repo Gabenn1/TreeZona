@@ -1,6 +1,8 @@
 import Rightbar from "./Rightbar";
 import Sidebar from "./Sidebar";
 import TopNav from "./Topnav";
+import SatelliteMap from "./Map"; // Import SatelliteMap component
+
 
 function Home() {
   return (
@@ -9,6 +11,7 @@ function Home() {
       <Sidebar />
 
       {/* Main Content Area */}
+
       <div className=" flex flex-col w-[97vw]">
         {/* Top Menu Bar */}
         <TopNav />

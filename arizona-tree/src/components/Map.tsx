@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   AzureMap,
   AzureMapsProvider,
@@ -6,23 +6,35 @@ import {
   AuthenticationType,
 } from "react-azure-maps";
 
-const option: IAzureMapOptions = {
-  authOptions: {
-    authType: AuthenticationType.subscriptionKey,
-    subscriptionKey: import.meta.env.AZURE_SUBSCRIPTION_KEY,
-  },
-  disableTelemetry: true,
-  center: [26.157981, -29.083937],
-  zoom: 4,
-  pitch: 50,
-};
+const DefaultMap: React.FC = () => {
+  const [option, setOption] = useState<IAzureMapOptions | null>(null);
 
-const DefaultMap: React.FC = () => (
-  <AzureMapsProvider>
-    <div style={{ height: "300px" }}>
-      <AzureMap options={option} />
-    </div>
-  </AzureMapsProvider>
-);
+  useEffect(() => {
+    const subscriptionKey = import.meta.env.VITE_AZURE_SUBSCRIPTION_KEY;
+    console.log(subscriptionKey);
+    
+    if (subscriptionKey) {
+      setOption({
+        authOptions: {
+          authType: AuthenticationType.subscriptionKey,
+          subscriptionKey: subscriptionKey,
+        },
+        disableTelemetry: true,
+      });
+    }
+  }, []);
+
+  if (!option) {
+    return <div>Loading...</div>; // Fallback content while the map is loading
+  }
+
+  return (
+    <AzureMapsProvider>
+      <div style={{ height: "300px" }}>
+        <AzureMap options={option} />
+      </div>
+    </AzureMapsProvider>
+  );
+};
 
 export default DefaultMap;
