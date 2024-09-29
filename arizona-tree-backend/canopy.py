@@ -59,3 +59,5 @@ def canopy_coverage(image: Image.Image):
     import os
     # Make sure to delete the temporary file after use
     os.remove(temp_file_path)
+
+    return {"coverage_percentage": coverage_percentage}

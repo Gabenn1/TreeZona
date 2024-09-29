@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import {
   AzureMap,
   AzureMapsProvider,
@@ -87,10 +87,35 @@ export default function App() {
   const [option, setOption] = useState<IAzureMapOptions>(initialOption);
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const [triggerSearch, setTriggerSearch] = useState(false); // State to control when to trigger the search
+  const fileInputRef = useRef<HTMLInputElement | null>(null); // Reference to the file input
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setTriggerSearch(true); // Trigger search when the form is submitted
+  };
+
+  // Function to capture and upload the selected file
+  const handleButtonClick = async () => {
+    try {
+      console.log("Processing image...");
+
+      const latitude = 40.7128; // replace with dynamic values if needed
+      const longitude = -74.006; // replace with dynamic values if needed
+
+      // First API call: GET request to /canopy/{latitude}/{longitude}
+      const getResponse = await fetch(`/canopy/${latitude}/${longitude}`);
+      if (!getResponse.ok) {
+        throw new Error("Failed to fetch canopy data.");
+      }
+      const canopyData = await getResponse.json();
+      console.log("Canopy data:", canopyData);
+
+      // Second API call: POST request to /canopy with the image file
+
+      const getResponse2 = await fetch(`/canopy`);
+    } catch (error) {
+      console.error("Error processing image:", error);
+    }
   };
 
   return (
@@ -110,11 +135,26 @@ export default function App() {
           />
           <button
             type="submit"
-            className="ml-2 p-2 bg-black text-white rounded-r-xl"
+            className="ml-2 p-2 bg-green text-black rounded-r-xl"
           >
             Search
           </button>
         </form>
+
+        {/* Bottom Left Button */}
+        <button
+          onClick={handleButtonClick}
+          className="absolute top-4 right-4 z-10 p-2 bg-green text-black rounded-lg shadow-md"
+        >
+          Process Image
+        </button>
+
+        {/* File Input for Image Upload */}
+        <input
+          type="file"
+          ref={fileInputRef}
+          className="absolute bottom-4 right-4 z-10 p-2"
+        />
 
         {/* Map Component */}
         <AzureMap options={option} />
