@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { TreePine } from "lucide-react";
 import Cards from "./Cards";
 import SatelliteMap from "./Map";
 

@@ -1,3 +1,11 @@
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+
 function TopNav() {
   return (
     <header className="flex justify-between items-center p-4 border-b border-gray-300 bg-gray-50 flex-wrap w-[95.2vw]">
@@ -12,9 +20,19 @@ function TopNav() {
         </div>
         {/* Location Dropdown */}
         <div className="location">
-          <select className="py-1 px-3 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-            <option>Phoenix, Arizona</option>
-          </select>
+          <Select>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Tempe " />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="light">Tempe</SelectItem>
+              <SelectItem value="dark">Phoenix</SelectItem>
+              <SelectItem value="system">Glendale</SelectItem>
+              <SelectItem value="system">Peoria</SelectItem>
+              <SelectItem value="system">Tuscon</SelectItem>
+              <SelectItem value="system">Flagstaff</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </header>
