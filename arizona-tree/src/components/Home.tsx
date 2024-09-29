@@ -3,7 +3,6 @@ import Sidebar from "./Sidebar";
 import TopNav from "./Topnav";
 import SatelliteMap from "./Map"; // Import SatelliteMap component
 
-
 function Home() {
   return (
     <div className="flex flex-col md:flex-row h-screen w-[100vw]">
