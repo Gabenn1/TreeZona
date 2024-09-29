@@ -6,7 +6,7 @@ from rasterio import plot
 import numpy as np
 
 # Load the tile from the local file system
-tile_filename = "testdata/tile5.png"
+tile_filename = "testdata/mapImage.png"
 
 # Use the pre-trained model to segment the image into tree/non-tree pixels
 y_pred = dtr.Classifier().predict_img(tile_filename)
