@@ -1,13 +1,11 @@
-import React from 'react';
-import './App.css'; // Global styles
-import Sidebar from './Sidebar'; // Sidebar component
-
+import React from "react";
+import "./App.css"; // Global styles
+import Home from "./components/Home";
 
 function App() {
   return (
     <main>
-      <Sidebar /> {/* Render the Sidebar */}
-     
+      <Home />
     </main>
   );
 }
