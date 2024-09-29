@@ -39,10 +39,10 @@ ax.imshow(np.moveaxis(img, 0, -1))  # Move axis to plot correctly (bands last)
 from matplotlib.colors import ListedColormap
 
 # Neon yellow color for tree pixels
-neon_yellow_cmap = ListedColormap(["none", "#ff073a"])  # Bright neon yellow
+neon_yellow_cmap = ListedColormap(["none", "#FFFF33"])  # Bright neon yellow
 
 # Overlay the prediction with the custom neon yellow colormap
-ax.imshow(y_pred, cmap=neon_yellow_cmap, alpha=0.6)  # Adjust alpha for transparency
+ax.imshow(y_pred, cmap=neon_yellow_cmap, alpha=1)  # Adjust alpha for transparency
 
 # Remove axes for cleaner output
 ax.axis("off")
