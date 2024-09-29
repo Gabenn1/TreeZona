@@ -2,7 +2,9 @@ function TopNav() {
   return (
     <header className="flex justify-between items-center p-4 border-b border-gray-300 bg-gray-50 flex-wrap">
       <div className="flex items-center space-x-4">
-        <span className="text-lg font-semibold">Arizona Tree</span>
+        <span className="text-lg font-semibold font-monteserrat">
+          Arizona Tree
+        </span>
       </div>
       <div className="flex items-center space-x-4 mt-2 md:mt-0">
         {/* Weather and Temperature */}

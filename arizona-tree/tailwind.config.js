@@ -17,6 +17,16 @@ export default {
         gray: "#B4B3B3",
         lightGray: "#F5F3F3",
       },
+      fontFamily: {
+        monteserrat: [
+          "Monteserrat",
+          "system - ui",
+          "Avenir",
+          "Helvetica",
+          "Arial",
+          "sans - serif",
+        ],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
