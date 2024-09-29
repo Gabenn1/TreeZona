@@ -4,12 +4,12 @@ import TopNav from "./Topnav";
 
 function Home() {
   return (
-    <div className="flex flex-col md:flex-row h-screen">
+    <div className="flex flex-col md:flex-row h-screen w-[100vw]">
       {/* Sidebar */}
       <Sidebar />
 
       {/* Main Content Area */}
-      <div className=" flex flex-col w-[97vw]">
+      <div className=" flex flex-col w-full">
         {/* Top Menu Bar */}
         <TopNav />
 

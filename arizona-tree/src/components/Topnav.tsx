@@ -1,6 +1,6 @@
 function TopNav() {
   return (
-    <header className="flex justify-between items-center p-4 border-b border-gray-300 bg-gray-50 flex-wrap">
+    <header className="flex justify-between items-center p-4 border-b border-gray-300 bg-gray-50 flex-wrap w-[95.2vw]">
       <div className="flex items-center space-x-4">
         <span className="text-lg font-semibold font-monteserrat">
           Arizona Tree

@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css"; // Global styles
 import Home from "./components/Home";
 
