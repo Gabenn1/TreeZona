@@ -1,11 +1,27 @@
+import { useState, useEffect } from "react";
 import { TreePine } from "lucide-react";
 import Cards from "./Cards";
+import SatelliteMap from "./Map";
 
 function MapSection() {
+  const [imageSrc, setImageSrc] = useState("/images/output.png");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Append a cache-busting timestamp to the image source
+      setImageSrc(`/images/output.png?timestamp=${new Date().getTime()}`);
+    }, 5000); // Check every 5 seconds
+
+    return () => clearInterval(interval); // Cleanup on component unmount
+  }, []);
+
   return (
     <div className="flex">
       {/* Map Section */}
-      <div className="w-[73%]"></div>
+
+      <div className="w-[73%]">
+        <SatelliteMap />
+      </div>
 
       {/* Right Sidebar */}
 
@@ -22,7 +38,7 @@ function MapSection() {
           </div>
         </div>
         <div className="my-6">
-          <img src="/dummyImage.jpg" className="rounded-2xl" />
+          <img src={imageSrc} className="rounded-2xl " />
         </div>
         <SummarySection summary="This area has a green view index of 50%. More trees can improve temperature." />
         <div className="grid grid-cols-2 my-6 w-full">

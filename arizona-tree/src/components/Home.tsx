@@ -1,7 +1,6 @@
 import MapSection from "./MapSection";
 import Sidebar from "./Sidebar";
 import TopNav from "./Topnav";
-import SatelliteMap from "./Map"; // Import SatelliteMap component
 
 function Home() {
   return (

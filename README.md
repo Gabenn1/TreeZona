@@ -1,7 +1,8 @@
-# TreeZona
+# Arizona Tree
+![Arizona Tree logo](https://github.com/Gabenn1/TreeZona/blob/main/arizona-tree-backend/Arizona_Tree.png?raw=true)
 ## Sunhacks 2024
 
-TreeZona is a web-based application designed to provide users with insights into the canopy coverage of a given location. By entering an address or location, users can explore an interactive map to visualize the tree canopy and receive a percentage of tree coverage in that area.
+Arizona Tree is a web-based application designed to provide users with insights into the canopy coverage of a given location. By entering an address or location, users can explore an interactive map to visualize the tree canopy and receive a percentage of tree coverage in that area.
 
 ## Features
 - Interactive Map: Users can input a location to view a satellite map of the area.
@@ -16,7 +17,7 @@ TreeZona is a web-based application designed to provide users with insights into
 - Bun as the JavaScript runtime to handle server-side logic and build tasks.
 
 ## License
-TreeZona is licensed under the MIT License.
+Arizona Tree is licensed under the MIT License.
 
 ## Contributing
-Contributions are welcome! If you would like to contribute to TreeZona, please fork the repository, make your changes, and submit a pull request.
+Contributions are welcome! If you would like to contribute to Arizona Tree, please fork the repository, make your changes, and submit a pull request.
