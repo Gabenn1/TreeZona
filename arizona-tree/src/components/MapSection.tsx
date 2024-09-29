@@ -10,7 +10,6 @@ function MapSection() {
       // Append a cache-busting timestamp to the image source
       setImageSrc(`/images/output.png?timestamp=${new Date().getTime()}`);
     }, 5000); // Check every 5 seconds
-
     return () => clearInterval(interval); // Cleanup on component unmount
   }, []);
 
@@ -36,33 +35,34 @@ function MapSection() {
         <div className="my-6">
           <img src={imageSrc} className="rounded-2xl w- max-h-[250px] w-full" />
         </div>
-        <SummarySection summary="This area has a green view index of 50%. More trees can improve temperature." />
+        <SummarySection summary="The amount of trees covers 15.88% of the given area. This can be improved by around 14.12% for optimal coverage." />
         <div className="grid grid-cols-2 my-6 w-full">
           <LocationInfo
             category="City"
-            info="tempe"
+            info="Tempe"
             className="py-2 border-b border-r border-gray"
           />
           <LocationInfo
             category="Time"
-            info="12:00"
+            // Get current time
+            info={new Date().toLocaleTimeString()}
             className="border-b py-2 pl-2 border-gray"
           />
           <LocationInfo
             category="Air Quality"
-            info="62"
+            info="25 AQI"
             className="py-2 border-b border-r border-gray"
           />
           <LocationInfo
-            category="C02"
-            info="128"
+            category="C02 Saturation"
+            info="Acceptable"
             className="border-b py-2 pl-2 border-gray"
           />
         </div>
 
         <div className="flex flex-row gap-10 justify-center">
-          <Cards coverageType="Current" coverageValue={10} />
-          <Cards coverageType="Optimal" coverageValue={35} />
+          <Cards coverageType="Current" coverageValue={15.88} />
+          <Cards coverageType="Optimal" coverageValue={30} />
         </div>
       </div>
     </div>
