@@ -1,4 +1,4 @@
-import Rightbar from "./Rightbar";
+import MapSection from "./MapSection";
 import Sidebar from "./Sidebar";
 import TopNav from "./Topnav";
 
@@ -14,7 +14,7 @@ function Home() {
         <TopNav />
 
         {/* Main Map and Right Sidebar */}
-        <Rightbar />
+        <MapSection />
       </div>
     </div>
   );
