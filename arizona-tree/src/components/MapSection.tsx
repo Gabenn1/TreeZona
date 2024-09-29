@@ -25,12 +25,9 @@ function MapSection() {
 
       {/* Right Sidebar */}
 
-      <div className="flex flex-col h-[93vh] w-[26%] border-l text-3xl p-5 pt-8">
+      <div className="flex flex-col h-[93vh] w-[26%] border-l text-3xl p-8 pt-8">
         <div className="flex items-center">
           <div className="flex flex-row gap-4 justify-center items-center">
-            <div>
-              <TreePine className="w-12 h-12" />
-            </div>
             <div>
               <p className="leading-4">677 W Carter Dr</p>
               <p className="text-[14px] text-gray">Tempe, AZ 85282</p>
@@ -38,7 +35,7 @@ function MapSection() {
           </div>
         </div>
         <div className="my-6">
-          <img src={imageSrc} className="rounded-2xl " />
+          <img src={imageSrc} className="rounded-2xl w- max-h-[250px] w-full" />
         </div>
         <SummarySection summary="This area has a green view index of 50%. More trees can improve temperature." />
         <div className="grid grid-cols-2 my-6 w-full">
