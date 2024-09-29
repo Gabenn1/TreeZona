@@ -11,8 +11,8 @@ import axios from "axios";
 // Map options
 // Map options
 const initialOption: IAzureMapOptions = {
-  zoom: 16,
-  center: [-111.931891, 33.415613], // Default center
+  zoom: 18,
+  center: [-111.951251, 33.381957], // Default center
   maxZoom: 18,
   authOptions: {
     authType: AuthenticationType.subscriptionKey,
@@ -102,11 +102,6 @@ export default function App() {
     // get current center coordinates
 
     try {
-      const response = await axios.get(
-        "http://localhost:8000/canopy/33.415613/-111.931891"
-      );
-      console.log("Response:", response);
-
       const respone2 = await axios.get("http://localhost:8000/canopy");
 
       console.log("Response2:", respone2);
