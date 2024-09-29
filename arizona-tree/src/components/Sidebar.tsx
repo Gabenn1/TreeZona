@@ -1,6 +1,6 @@
 function Sidebar() {
   return (
-    <aside className="w-16 bg-gray-100 flex flex-col items-center py-4 border-r border-gray-300">
+    <aside className="w-16 bg-gray-100 flex flex-col items-center py-4 border-r border-gray-300 bg-lightGray">
       <div className="mb-6">
         <img src="/public/logo.svg" />
       </div>
