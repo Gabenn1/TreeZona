@@ -8,9 +8,9 @@ function Sidebar() {
       <div className="mb-6">
         <img src="/logo.svg" />
       </div>
-      <div className="flex flex-col space-y-6">
-        <Map className="w-[30px] h-[30px]" />
-        <Settings className="w-[30px] h-[30px]" />
+      <div className="flex flex-col gap-8">
+        <Map className="w-[30px] h-[30px] hover:text-orange hover:cursor-pointer" />
+        <Settings className="w-[30px] h-[30px] hover:text-orange hover:cursor-pointer" />
         <i className="fas fa-cog text-xl text-gray-600 hover:text-blue-500"></i>
       </div>
     </aside>
