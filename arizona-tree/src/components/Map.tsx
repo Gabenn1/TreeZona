@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {
   AzureMap,
   AzureMapsProvider,
@@ -8,7 +8,7 @@ import {
 } from "react-azure-maps";
 import { data } from "azure-maps-control";
 import axios from "axios";
-
+// Map options
 // Map options
 const initialOption: IAzureMapOptions = {
   zoom: 16,
@@ -87,32 +87,29 @@ export default function App() {
   const [option, setOption] = useState<IAzureMapOptions>(initialOption);
   const [searchQuery, setSearchQuery] = useState(""); // State for search query
   const [triggerSearch, setTriggerSearch] = useState(false); // State to control when to trigger the search
-  const fileInputRef = useRef<HTMLInputElement | null>(null); // Reference to the file input
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setTriggerSearch(true); // Trigger search when the form is submitted
   };
 
-  // Function to capture and upload the selected file
+  // Function to capture and download the map as an image
   const handleButtonClick = async () => {
+    console.log("Processing image...");
+
+    // Make get request to the server to process the image
+
+    // get current center coordinates
+
     try {
-      console.log("Processing image...");
+      const response = await axios.get(
+        "http://localhost:8000/canopy/33.415613/-111.931891"
+      );
+      console.log("Response:", response);
 
-      const latitude = 40.7128; // replace with dynamic values if needed
-      const longitude = -74.006; // replace with dynamic values if needed
+      const respone2 = await axios.get("http://localhost:8000/canopy");
 
-      // First API call: GET request to /canopy/{latitude}/{longitude}
-      const getResponse = await fetch(`/canopy/${latitude}/${longitude}`);
-      if (!getResponse.ok) {
-        throw new Error("Failed to fetch canopy data.");
-      }
-      const canopyData = await getResponse.json();
-      console.log("Canopy data:", canopyData);
-
-      // Second API call: POST request to /canopy with the image file
-
-      const getResponse2 = await fetch(`/canopy`);
+      console.log("Response2:", respone2);
     } catch (error) {
       console.error("Error processing image:", error);
     }
@@ -148,13 +145,6 @@ export default function App() {
         >
           Process Image
         </button>
-
-        {/* File Input for Image Upload */}
-        <input
-          type="file"
-          ref={fileInputRef}
-          className="absolute bottom-4 right-4 z-10 p-2"
-        />
 
         {/* Map Component */}
         <AzureMap options={option} />
