@@ -1,11 +1,15 @@
 import { TreePine } from "lucide-react";
 import Cards from "./Cards";
+import SatelliteMap from "./Map";
+
 
 function MapSection() {
   return (
     <div className="flex">
       {/* Map Section */}
-      <div className="w-[73%]">Map here</div>
+      <div className="w-[73%]">
+        <SatelliteMap />
+      </div>
 
       {/* Right Sidebar */}
 
