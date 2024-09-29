@@ -21,3 +21,6 @@ Arizona Tree is licensed under the MIT License.
 
 ## Contributing
 Contributions are welcome! If you would like to contribute to Arizona Tree, please fork the repository, make your changes, and submit a pull request.
+
+## Canopy detector written by martibosch
+https://github.com/martibosch/detectree
