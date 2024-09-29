@@ -2,17 +2,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
   width: 100vw;
 }
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-} */
 
 .detail {
   @apply text-[16px];
